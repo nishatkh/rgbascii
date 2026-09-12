@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-label="rgbascii animated terminal demo">
+  <defs>
+    <linearGradient id="eq" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#3fb950"/>
+      <stop offset="1" stop-color="#58a6ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- window frame -->
+  <rect x="40" y="30" width="680" height="320" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+  <path d="M40 42 Q40 30 52 30 L708 30 Q720 30 720 42 L720 70 L40 70 Z" fill="#161b22"/>
+
+  <circle cx="66"  cy="50" r="5" fill="#ff5f57"/>
+  <circle cx="86"  cy="50" r="5" fill="#febc2e"/>
+  <circle cx="106" cy="50" r="5" fill="#28c840"/>
+
+  <text x="132" y="55" font-family="monospace" font-size="15" fill="#9da7b3">rgbascii — demo.mp4</text>
+  <text x="626" y="55" font-family="monospace" font-size="15" fill="#8b949e">60 fps</text>
+  <circle cx="606" cy="51" r="4" fill="#f85149">
+    <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.6;1" dur="1.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- screen body -->
+  <rect x="46" y="76" width="668" height="268" rx="8" fill="#010409" stroke="#21262d"/>
+
+  <!-- scanline sweep over the video area -->
+  <g opacity="0.12">
+    <rect x="56" y="104" width="472" height="4" fill="#ffffff">
+      <animateTransform attributeName="transform" type="translate" values="0 0; 0 160" dur="4s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- the "video": ASCII rows that slowly cycle through RGB -->
+  <g fill="#7ee787">
+    <animate attributeName="fill" values="#7ee787;#79c0ff;#f778ba;#7ee787" dur="9s" repeatCount="indefinite"/>
+    <text x="60" y="106" font-family="monospace" font-size="14">...::::::==========---------...........%%%%%%%%%%%%%%%</text>
+      <text x="60" y="127" font-family="monospace" font-size="14">..:::::=====----------.......%%%%%%%%%%%%%#########@@@</text>
+      <text x="60" y="148" font-family="monospace" font-size="14">..::::====--------.....%%%%%%%%%%%%%%###########@@@@@@</text>
+      <text x="60" y="169" font-family="monospace" font-size="14">...::==------.......%%%%%%%%%%%#########@@@@@@@@@@%%%*</text>
+      <text x="60" y="190" font-family="monospace" font-size="14">..::==-------.....%%%%%%%%%%%#########@@@@@@@@@%%%*+++</text>
+      <text x="60" y="211" font-family="monospace" font-size="14">..:==-------.....%%%%%%%%%%#######@@@@@@@@@%%%**+*+</text>
+      <text x="60" y="232" font-family="monospace" font-size="14">.:==------.....%%%%%%%######@@@@@@@@@@%%%******+###</text>
+      <text x="60" y="253" font-family="monospace" font-size="14">.=------....%%%%########@@@@@@@@@%%%%%%%%%###*+%@@</text>
+  </g>
+
+  <!-- bouncing ball -->
+  <text font-family="monospace" font-size="16" fill="#ff7b72">◎
+    <animateMotion dur="10s" repeatCount="indefinite" path="M60,225 C150,105 425,105 512,225 C425,300 150,300 60,225"/>
+  </text>
+
+  <!-- drifting particles -->
+  <text font-family="monospace" font-size="12" fill="#f778ba">+
+    <animateMotion dur="3.2s" repeatCount="indefinite" path="M70,250 L140,228 L214,262 L70,250"/>
+  </text>
+  <text font-family="monospace" font-size="12" fill="#7ee787">*
+    <animateMotion dur="3.8s" repeatCount="indefinite" path="M420,130 L505,160 L382,190 L420,130"/>
+  </text>
+  <text font-family="monospace" font-size="12" fill="#a5d6ff">·
+    <animateMotion dur="4.3s" repeatCount="indefinite" path="M505,170 L458,220 L552,215 L505,170"/>
+  </text>
+
+  <!-- audio panel -->
+  <line x1="534" y1="90" x2="534" y2="328" stroke="#21262d"/>
+  <text x="548" y="106" font-family="monospace" font-size="12" fill="#58a6ff">AUDIO OUT</text>
+  <rect x="552" y="252" width="9" height="10" rx="2" fill="url(#eq)"><animate attributeName="height" values="10;30;14;26;10" dur="1.15s" repeatCount="indefinite"/></rect>
+      <rect x="569" y="252" width="9" height="11" rx="2" fill="url(#eq)"><animate attributeName="height" values="11;28;17;25;11" dur="1.32s" repeatCount="indefinite"/></rect>
+      <rect x="586" y="252" width="9" height="12" rx="2" fill="url(#eq)"><animate attributeName="height" values="12;26;20;24;12" dur="1.49s" repeatCount="indefinite"/></rect>
+      <rect x="603" y="252" width="9" height="13" rx="2" fill="url(#eq)"><animate attributeName="height" values="13;24;23;23;13" dur="1.66s" repeatCount="indefinite"/></rect>
+      <rect x="620" y="252" width="9" height="14" rx="2" fill="url(#eq)"><animate attributeName="height" values="14;22;26;22;14" dur="1.83s" repeatCount="indefinite"/></rect>
+      <rect x="637" y="252" width="9" height="15" rx="2" fill="url(#eq)"><animate attributeName="height" values="15;20;29;21;15" dur="2.00s" repeatCount="indefinite"/></rect>
+  <text x="548" y="292" font-family="monospace" font-size="11" fill="#8b949e">video rgb24 glyph</text>
+  <text x="548" y="306" font-family="monospace" font-size="11" fill="#8b949e">ffmpeg → ascii → tty</text>
+
+  <!-- progress -->
+  <rect x="60" y="314" width="460" height="4" rx="2" fill="#21262d"/>
+  <rect x="60" y="314" width="0" height="4" rx="2" fill="#58a6ff">
+    <animate attributeName="width" values="0;460;120;430;460" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <circle cy="316" r="4" fill="#e6edf3" cx="60">
+    <animate attributeName="cx" values="60;520;180;490;520" dur="12s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- status line + blinking cursor -->
+  <text x="60" y="338" font-family="monospace" font-size="13" fill="#3fb950">rgbascii$ demo.mp4 ▮▮▮▯▯ 00:42</text>
+  <text x="300" y="338" font-family="monospace" font-size="13" fill="#e6edf3">▌
+    <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.45;0.5;1" dur="1s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- caption -->
+  <text x="380" y="392" text-anchor="middle" font-family="monospace" font-size="18" fill="#79c0ff">
+    real-time full-colour RGB ASCII video in your terminal
+    <animate attributeName="fill" values="#79c0ff;#7ee787;#f778ba;#79c0ff" dur="6s" repeatCount="indefinite"/>
+  </text>
+</svg>

@@ -1,4 +1,12 @@
-# rgbascii
+# <img src="assets/logo.svg" alt="rgbascii" width="360">
+
+<p align="center">
+  <img src="assets/hero.svg" alt="rgbascii — an animated terminal playing a video as full-colour ASCII art" width="650">
+</p>
+
+<p align="center">
+  <code>numpy</code> · <code>ffmpeg + ffprobe</code> · <code>sounddevice</code> · Python ≥ 3.11 · MIT
+</p>
 
 > **Play any video as colourful ASCII art, right inside your terminal — with audio.**
 
@@ -12,37 +20,45 @@
 
 ---
 
-## Table of Contents
+<p align="center">
+<code>▄▀▀▀▄ █▀▀▀▄ ▄▀▀▀▄ █░░░█ ▀▀█▀▀</code><br>
+<code>█████ ████░ █░░░█ █░░░█ ░░█░░</code><br>
+<code>█░░░█ █▄▄▄▀ ▀▄▄▄▀ ▀▄▄▄▀ ░░█░░</code>
+</p>
 
-1. [Requirements](#requirements)
-2. [Install in 60 seconds](#install-in-60-seconds)
-3. [Quick start](#quick-start)
-4. [Render modes](#render-modes)
-5. [All options](#all-options)
-6. [Keyboard controls](#keyboard-controls)
-7. [Tips & recipes](#tips--recipes)
-8. [Troubleshooting](#troubleshooting)
-9. [Exit codes](#exit-codes)
+## ✨ About
 
----
+One FFmpeg subprocess turns your video into a raw `rgb24` stream; a vectorised
+NumPy pipeline resizes it to a character grid; a luminance lookup keeps the peak
+glyphs bright and the shadows sparse; and a minimal-diff ANSI encoder paints each
+cell with 24-bit colour. The result plays **live**, synced to a master clock.
 
-## Requirements
-
-| Requirement | How to install |
-|---|---|
-| **Python 3.11 or newer** | [python.org](https://www.python.org/downloads/) |
-| **ffmpeg + ffprobe** | `brew install ffmpeg` · `apt install ffmpeg` · `choco install ffmpeg` |
-
-Check you have both:
-
-```sh
-python3 --version   # needs 3.11+
-ffmpeg -version     # any recent version is fine
-```
+* **Real time** — decode runs ahead on a bounded queue, stale frames are dropped,
+  and a sustained lag triggers an automatic re-seek (`--catchup-ms`).
+* **Synchronised audio** — FFmpeg → `sounddevice`; the audio sample cursor becomes
+  the master clock so lips don't drift (`--clock auto|audio|video`).
+* **5 renderers** — `ascii`, `grayscale`, `mono`, `halfblock` + the `rgb` alias.
+* **Interactive** — pause, quit, seek, resolution and restart from the keyboard,
+  plus live terminal-resize adaptation.
+* **Terminal-safe** — the alternate screen buffer, raw input and final reset are
+  all restored on quit, error, or Ctrl+C.
 
 ---
 
-## Install in 60 seconds
+<p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
+
+<p align="center">
+<code>░▀█▀░ █▄░░█ ▄▀▀▀▀ ▀▀█▀▀ ▄▀▀▀▄ █░░░░ █░░░░</code><br>
+<code>░░█░░ █░█░█ ░███░ ░░█░░ █████ █░░░░ █░░░░</code><br>
+<code>░▄█▄░ █░░▀█ ▄▄▄▄▀ ░░█░░ █░░░█ █▄▄▄▄ █▄▄▄▄</code>
+</p>
+
+## 🚀 Install in 60 seconds
+
+| Requirement       | How to install                                       |
+|-------------------|------------------------------------------------------|
+| **Python 3.11+**  | [python.org](https://www.python.org/downloads/)      |
+| **ffmpeg+ffprobe**| `brew install ffmpeg` · `apt install ffmpeg` · `choco install ffmpeg` |
 
 ```sh
 # 1. Go to the project folder
@@ -52,35 +68,47 @@ cd /path/to/rgbascii
 python3 -m venv .venv
 
 # 3. Activate it
-#    macOS / Linux (bash/zsh):
-source .venv/bin/activate
-#    macOS / Linux (fish shell):
-source .venv/bin/activate.fish
-#    Windows:
-.venv\Scripts\activate
+source .venv/bin/activate          # macOS / Linux (bash, zsh)
+# source .venv/bin/activate.fish   # macOS / Linux (fish)
+# .venv\Scripts\activate           # Windows
 
 # 4. Install rgbascii with audio support
 pip install ".[audio]"
 ```
 
-> **Tip — Using the venv without activating it:**
-> You can always call `.venv/bin/rgbascii` (or `.venv\Scripts\rgbascii` on Windows)
-> directly without activating the environment.
+> **Tip — using the venv without activating it**
+> Call `.venv/bin/rgbascii` (or `.venv\Scripts\rgbascii` on Windows) directly.
 
 ---
 
-## Quick start
+<p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
+
+<p align="center">
+<code>▄▀▀▀▄ █░░░█ ░▀█▀░ ▄▀▀▀▀ █░░▄▀ ▄▀▀▀▀ ▀▀█▀▀ ▄▀▀▀▄ █▀▀▀▄ ▀▀█▀▀</code><br>
+<code>█░░░█ █░░░█ ░░█░░ █░░░░ ████░ ░███░ ░░█░░ █████ ████░ ░░█░░</code><br>
+<code>▀▄▄█▀ ▀▄▄▄▀ ░▄█▄░ ▀▄▄▄▄ █░░▀▄ ▄▄▄▄▀ ░░█░░ █░░░█ █░▀▄▄ ░░█░░</code>
+</p>
+
+## ▶️ Quick start
 
 ```sh
 rgbascii movie.mp4
 ```
 
-That's it. The video plays in full colour, loops forever, and audio plays through
+That's it — the video plays in full colour, loops forever, audio plays through
 your speakers. Press **q** to quit.
 
 ---
 
-## Render modes
+<p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
+
+<p align="center">
+<code>█▀▀▀▄ █▀▀▀▀ █▄░░█ █▀▀▀▄ █▀▀▀▀ █▀▀▀▄ ░░░░░ █▄░▄█ ▄▀▀▀▄ █▀▀▀▄ █▀▀▀▀ ▄▀▀▀▀</code><br>
+<code>████░ ████░ █░█░█ █░░░█ ████░ ████░ ░░░░░ █░█░█ █░░░█ █░░░█ ████░ ░███░</code><br>
+<code>█░▀▄▄ █▄▄▄▄ █░░▀█ █▄▄▄▀ █▄▄▄▄ █░▀▄▄ ░░░░░ █░░░█ ▀▄▄▄▀ █▄▄▄▀ █▄▄▄▄ ▄▄▄▄▀</code>
+</p>
+
+## 🎨 Render modes
 
 Choose with `--mode <name>`:
 
@@ -90,17 +118,25 @@ Choose with `--mode <name>`:
 | `rgb` | Identical to `ascii` (alias) | — |
 | `grayscale` | Characters + grey tones only | Monochrome look |
 | `mono` | Single highlight colour, no per-pixel colour | Stylised / artistic |
-| `halfblock` | Block characters (▀) — 2× more vertical detail | Smooth, almost-pixel video |
+| `halfblock` | Block characters (`▀`) — 2× more vertical detail | Smooth, almost-pixel video |
 
 ```sh
-rgbascii movie.mp4 --mode halfblock     # smoothest picture
-rgbascii movie.mp4 --mode grayscale     # black-and-white
+rgbascii movie.mp4 --mode halfblock       # smoothest picture
+rgbascii movie.mp4 --mode grayscale       # black-and-white
 rgbascii movie.mp4 --mode mono --mono-color FF0080   # hot-pink tint
 ```
 
 ---
 
-## All options
+<p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
+
+<p align="center">
+<code>▄▀▀▀▄ █░░░░ █░░░░ ░░░░░ ▄▀▀▀▄ █▀▀▀▄ ▀▀█▀▀ ░▀█▀░ ▄▀▀▀▄ █▄░░█ ▄▀▀▀▀</code><br>
+<code>█████ █░░░░ █░░░░ ░░░░░ █░░░█ █░░░█ ░░█░░ ░░█░░ █░░░█ █░█░█ ░███░</code><br>
+<code>█░░░█ █▄▄▄▄ █▄▄▄▄ ░░░░░ ▀▄▄▄▀ █▀▀▀░ ░░█░░ ░▄█▄░ ▀▄▄▄▀ █░░▀█ ▄▄▄▄▀</code>
+</p>
+
+## ⚙️ All options
 
 ### Size & terminal
 
@@ -115,8 +151,8 @@ rgbascii movie.mp4 --mode mono --mono-color FF0080   # hot-pink tint
 Most of the time you only need `--width`:
 
 ```sh
-rgbascii movie.mp4 --width 80          # 80-column render
-rgbascii movie.mp4 --width 120 --height 40   # fixed box (letterboxed)
+rgbascii movie.mp4 --width 80              # 80-column render
+rgbascii movie.mp4 --width 120 --height 40 # fixed box (letterboxed)
 ```
 
 ### Render mode & character set
@@ -149,7 +185,7 @@ rgbascii movie.mp4 --color-levels 4            # retro posterised look
 
 ### Image adjustment
 
-All values are applied in order: brightness → contrast → saturation → gamma.
+All values are applied in order: **brightness → contrast → saturation → gamma**.
 
 ```
 --brightness F    Add to brightness  (-1.0 to 1.0, default 0)
@@ -180,9 +216,9 @@ rgbascii movie.mp4 --saturation 0 --gamma 0.8         # moody greyscale
 
 ```sh
 rgbascii movie.mp4 --no-loop              # play once then quit
-rgbascii movie.mp4 --start 60 --end 120  # play minutes 1–2 only
-rgbascii movie.mp4 --no-audio            # silent / video clock only
-rgbascii movie.mp4 --fps 15              # slow it down to 15 fps
+rgbascii movie.mp4 --start 60 --end 120   # play minutes 1–2 only
+rgbascii movie.mp4 --no-audio             # silent / video clock only
+rgbascii movie.mp4 --fps 15               # slow it down to 15 fps
 ```
 
 ### Misc
@@ -195,7 +231,15 @@ rgbascii movie.mp4 --fps 15              # slow it down to 15 fps
 
 ---
 
-## Keyboard controls
+<p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
+
+<p align="center">
+<code>█░░▄▀ █▀▀▀▀ █░░░█ ▄▀▀▀▀</code><br>
+<code>████░ ████░ ░█░█░ ░███░</code><br>
+<code>█░░▀▄ █▄▄▄▄ ░░█░░ ▄▄▄▄▀</code>
+</p>
+
+## 🎮 Keyboard controls
 
 These work **while the video is playing** (press the key once, no Enter needed):
 
@@ -211,7 +255,63 @@ These work **while the video is playing** (press the key once, no Enter needed):
 
 ---
 
-## Tips & recipes
+<p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
+
+<p align="center">
+<code>█▀▀▀▄ █▀▀▀▀ █▄░▄█ ▄▀▀▀▄</code><br>
+<code>█░░░█ ████░ █░█░█ █░░░█</code><br>
+<code>█▄▄▄▀ █▄▄▄▄ █░░░█ ▀▄▄▄▀</code>
+</p>
+
+## 🎬 Demo
+
+> **Add your own demo recording here.** Anything that shows `rgbascii` live is
+> welcome — a terminal capture, a still, or a short GIF/MP4 of it playing.
+
+<div align="center">
+
+```
+┌──────────────────────────────────────────────┐
+│                                              │
+│              ▶  demo goes here  ▶            │
+│                                              │
+│   add assets/demo/rgbascii-demo.mp4 below    │
+│                                              │
+└──────────────────────────────────────────────┘
+```
+
+</div>
+
+**How to add a video — GitHub plays MP4 (H.264) inline:**
+
+```sh
+# record once, then put the file at assets/demo/rgbascii-demo.mp4
+mkdir -p assets/demo
+
+ffmpeg -i your_recording.webm \
+  -vf "scale=480:-1,fps=24" -c:v libx264 -pix_fmt yuv420p -movflags +faststart \
+  assets/demo/rgbascii-demo.mp4
+```
+
+Then enable the player below (uncomment it once the file exists):
+
+```html
+<!-- <video src="assets/demo/rgbascii-demo.mp4" width="650" controls muted loop autoplay playsinline></video> -->
+```
+
+Or paste any embed link (YouTube, Streamable, …) instead — either is fine.
+
+---
+
+<p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
+
+<p align="center">
+<code>▀▀█▀▀ ░▀█▀░ █▀▀▀▄ ▄▀▀▀▀</code><br>
+<code>░░█░░ ░░█░░ █░░░█ ░███░</code><br>
+<code>░░█░░ ░▄█▄░ █▀▀▀░ ▄▄▄▄▀</code>
+</p>
+
+## 💡 Tips & recipes
 
 **Smoothest picture**
 
@@ -263,7 +363,15 @@ rgbascii movie.mp4 --frames 100 --no-loop
 
 ---
 
-## Troubleshooting
+<p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
+
+<p align="center">
+<code>█▀▀▀▀ ▄▀▀▀▄ ▄▀▀▀▄</code><br>
+<code>████░ █████ █░░░█</code><br>
+<code>█░░░░ █░░░█ ▀▄▄█▀</code>
+</p>
+
+## ❓ Troubleshooting
 
 ### No audio / silent playback
 
@@ -326,9 +434,7 @@ The renderer auto-detects your terminal size. If it looks wrong:
 rgbascii movie.mp4 --width 80 --height 24   # force a fixed size
 ```
 
----
-
-## Exit codes
+### Exit codes
 
 | Code | Meaning |
 |---|---|
@@ -339,7 +445,15 @@ rgbascii movie.mp4 --width 80 --height 24   # force a fixed size
 
 ---
 
-## Development
+<p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
+
+<p align="center">
+<code>█▀▀▀▄ █▀▀▀▀ █░░░█</code><br>
+<code>█░░░█ ████░ █░░░█</code><br>
+<code>█▄▄▄▀ █▄▄▄▄ ░▀▄▀░</code>
+</p>
+
+## 🛠️ Development
 
 ```sh
 pip install -e ".[dev]"   # editable install with test deps
@@ -347,8 +461,28 @@ pytest                    # run all 140 tests
 python benchmarks/bench_render.py   # per-stage render timings
 ```
 
+Live, full-colour, in your terminal:
+
+```sh
+rgbascii your_video.mp4
+```
+
 ---
 
-## License
+<p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
+
+<p align="center">
+<code>█░░░░ ░▀█▀░ ▄▀▀▀▀ █▀▀▀▀ █▄░░█ ▄▀▀▀▀ █▀▀▀▀</code><br>
+<code>█░░░░ ░░█░░ █░░░░ ████░ █░█░█ ░███░ ████░</code><br>
+<code>█▄▄▄▄ ░▄█▄░ ▀▄▄▄▄ █▄▄▄▄ █░░▀█ ▄▄▄▄▀ █▄▄▄▄</code>
+</p>
+
+## 📄 License
 
 MIT — see [`LICENSE`](LICENSE).
+
+---
+
+<p align="center">
+  <sub>made with <code>pixels</code>, <code>░▒▓█</code> and far too much caffeine</sub>
+</p>
