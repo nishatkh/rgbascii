@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rgbascii"
+version = "0.1.0"
+description = "Real-time full-color RGB ASCII video renderer for the terminal"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "rgbascii contributors" }]
+keywords = ["ascii", "video", "terminal", "ansi", "trucolor", "ffmpeg"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Terminals",
+]
+dependencies = [
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+audio = ["sounddevice>=0.4.6"]
+test = ["pytest>=8.0"]
+dev = ["pytest>=8.0", "sounddevice>=0.4.6"]
+
+[project.scripts]
+rgbascii = "rgbascii.cli.commands:main"
+
+[project.urls]
+Homepage = "https://github.com/nishatkh/rgbascii"
+Repository = "https://github.com/nishatkh/rgbascii"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"
+markers = [
+    "requires_ffmpeg: integration tests that need ffmpeg/ffprobe on PATH",
+]
