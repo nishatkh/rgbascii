@@ -4,7 +4,7 @@ Play any video as colourful ASCII art right in your terminal — audio included,
 ---
 
 
-<p align="center"><img src="https://i.postimg.cc/ZRcHYny3/Screenshot-2026-09-12-at-7-57-03-PM.png" alt="rgbascii in action" width="700"></p>
+<p align="center"><img src="https://i.postimg.cc/XvDH9pv6/image.png" width="700"></p>
 ```
 
 ---
