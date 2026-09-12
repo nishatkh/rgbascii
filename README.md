@@ -12,14 +12,7 @@ Play any video as colourful ASCII art right in your terminal — audio included,
 
 ---
 
-<p align="center">
-<code> ███   ████    ███   █   █  █████</code><br>
-<code>█   █  █   █  █   █  █   █    █</code><br>
-<code>█████  ████   █   █  █   █    █</code><br>
-<code>█   █  █   █  █   █  █   █    █</code><br>
-<code>█   █  ████    ███    ███     █</code>
-</p>
-
+<p align="center"><img src="assets/headings/about.svg" alt="ABOUT" width="348"></p>
 - **Live & audio-synced** — FFmpeg feeds `sounddevice`; the audio cursor is the master clock.
 - **5 render modes** — `ascii`, `rgb`, `grayscale`, `mono`, `halfblock`.
 - **Resize-aware** — pauses, seeks and restarts from the keyboard; adapts to terminal resizes.
@@ -27,14 +20,7 @@ Play any video as colourful ASCII art right in your terminal — audio included,
 
 ---
 
-<p align="center">
-<code>█████  █   █   ███   █████   ███   █      █</code><br>
-<code>  █    ██  █  █        █    █   █  █      █</code><br>
-<code>  █    █ █ █   ██      █    █████  █      █</code><br>
-<code>  █    █  ██  █        █    █   █  █      █</code><br>
-<code>█████  █   █   ███     █    █   █  █████  █████</code>
-</p>
-
+<p align="center"><img src="assets/headings/install.svg" alt="INSTALL" width="492"></p>
 | Requirement | Install |
 |---|---|
 | Python 3.11+ | [python.org](https://www.python.org/downloads/) |
@@ -50,14 +36,7 @@ Prefer not to activate the venv? Call `.venv/bin/rgbascii` directly.
 
 ---
 
-<p align="center">
-<code> ███   █   █  █████   ███   █   █          ███   █████   ███   ████   █████</code><br>
-<code>█   █  █   █    █    █   █  █  █          █        █    █   █  █   █    █</code><br>
-<code>█   █  █   █    █    █      ██             ██      █    █████  ████     █</code><br>
-<code>█  ██  █   █    █    █   █  █  █          █        █    █   █  █  █     █</code><br>
-<code> ██ █   ███   █████   ███   █   █          ███     █    █   █  █   █    █</code>
-</p>
-
+<p align="center"><img src="assets/headings/quickstart.svg" alt="QUICK START" width="780"></p>
 ```sh
 rgbascii movie.mp4
 ```
@@ -66,14 +45,7 @@ That's it — full colour, looped, with audio. Press **q** to quit.
 
 ---
 
-<p align="center">
-<code>█   █   ███   ████   █████   ███</code><br>
-<code>██ ██  █   █  █   █  █      █</code><br>
-<code>█ █ █  █   █  █   █  ████    ██</code><br>
-<code>█   █  █   █  █   █  █      █</code><br>
-<code>█   █   ███   ████   █████   ███</code>
-</p>
-
+<p align="center"><img src="assets/headings/modes.svg" alt="MODES" width="348"></p>
 Use `--mode <name>`:
 
 | Mode | Look | Best for |
@@ -86,14 +58,7 @@ Use `--mode <name>`:
 
 ---
 
-<p align="center">
-<code> ███   ████   █████  █████   ███   █   █   ███</code><br>
-<code>█   █  █   █    █      █    █   █  ██  █  █</code><br>
-<code>█   █  ████     █      █    █   █  █ █ █   ██</code><br>
-<code>█   █  █        █      █    █   █  █  ██  █</code><br>
-<code> ███   █        █    █████   ███   █   █   ███</code>
-</p>
-
+<p align="center"><img src="assets/headings/options.svg" alt="OPTIONS" width="492"></p>
 All flags at a glance:
 
 | Flag | What it does |
@@ -132,14 +97,7 @@ rgbascii movie.mp4 --no-audio --fps 15 --debug
 
 ---
 
-<p align="center">
-<code>█   █  █████  █   █   ███</code><br>
-<code>█  █   █      █   █  █</code><br>
-<code>██     ████    █ █    ██</code><br>
-<code>█  █   █        █    █</code><br>
-<code>█   █  █████    █     ███</code>
-</p>
-
+<p align="center"><img src="assets/headings/keys.svg" alt="KEYS" width="276"></p>
 Press once while playing — no Enter needed:
 
 | Key | Action |
@@ -152,14 +110,7 @@ Press once while playing — no Enter needed:
 
 ---
 
-<p align="center">
-<code>████   █████  █   █   ███</code><br>
-<code>█   █  █      ██ ██  █   █</code><br>
-<code>█   █  ████   █ █ █  █   █</code><br>
-<code>█   █  █      █   █  █   █</code><br>
-<code>████   █████  █   █   ███</code>
-</p>
-
+<p align="center"><img src="assets/headings/demo.svg" alt="DEMO" width="276"></p>
 ```
 ┌────────────────────────────┐
 │        > demo goes here >  │
@@ -179,14 +130,7 @@ ffmpeg -i your_recording.webm -vf "scale=480:-1,fps=24" -c:v libx264 -pix_fmt yu
 
 ---
 
-<p align="center">
-<code>█████   ███    ███   █   █  █████   ███</code><br>
-<code>  █    █      █      █   █  █      █</code><br>
-<code>  █     ██     ██    █   █  ████    ██</code><br>
-<code>  █    █      █      █   █  █      █</code><br>
-<code>█████   ███    ███    ███   █████   ███</code>
-</p>
-
+<p align="center"><img src="assets/headings/issues.svg" alt="ISSUES" width="420"></p>
 - **No audio** — install with `".[audio]"`, check `ffmpeg` is on PATH, or try `--no-audio`.
 - **Garbled colours** — terminal may lack TrueColor: use `--no-color` or `--mode mono`.
 - **Slow / dropped frames** — lower `--width`, or raise `--catchup-ms 500`.
@@ -196,14 +140,7 @@ Exit codes: `0` ended or quit, `1` runtime error, `2` usage error, `130` Ctrl+C.
 
 ---
 
-<p align="center">
-<code>████   █████  █   █</code><br>
-<code>█   █  █      █   █</code><br>
-<code>█   █  ████   █   █</code><br>
-<code>█   █  █       █ █</code><br>
-<code>████   █████    █</code>
-</p>
-
+<p align="center"><img src="assets/headings/dev.svg" alt="DEV" width="204"></p>
 ```sh
 pip install -e ".[dev]"
 pytest                    # all 140 tests
@@ -212,12 +149,5 @@ python benchmarks/bench_render.py
 
 ---
 
-<p align="center">
-<code>█      █████   ███   █████  █   █   ███   █████</code><br>
-<code>█        █    █   █  █      ██  █  █      █</code><br>
-<code>█        █    █      ████   █ █ █   ██    ████</code><br>
-<code>█        █    █   █  █      █  ██  █      █</code><br>
-<code>█████  █████   ███   █████  █   █   ███   █████</code>
-</p>
-
+<p align="center"><img src="assets/headings/license.svg" alt="LICENSE" width="492"></p>
 MIT — see [`LICENSE`](LICENSE).
