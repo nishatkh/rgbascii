@@ -20,12 +20,6 @@
 
 ---
 
-<p align="center">
-<code>▄▀▀▀▄ █▀▀▀▄ ▄▀▀▀▄ █░░░█ ▀▀█▀▀</code><br>
-<code>█████ ████░ █░░░█ █░░░█ ░░█░░</code><br>
-<code>█░░░█ █▄▄▄▀ ▀▄▄▄▀ ▀▄▄▄▀ ░░█░░</code>
-</p>
-
 ## ✨ About
 
 One FFmpeg subprocess turns your video into a raw `rgb24` stream; a vectorised
@@ -46,12 +40,6 @@ cell with 24-bit colour. The result plays **live**, synced to a master clock.
 ---
 
 <p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
-
-<p align="center">
-<code>░▀█▀░ █▄░░█ ▄▀▀▀▀ ▀▀█▀▀ ▄▀▀▀▄ █░░░░ █░░░░</code><br>
-<code>░░█░░ █░█░█ ░███░ ░░█░░ █████ █░░░░ █░░░░</code><br>
-<code>░▄█▄░ █░░▀█ ▄▄▄▄▀ ░░█░░ █░░░█ █▄▄▄▄ █▄▄▄▄</code>
-</p>
 
 ## 🚀 Install in 60 seconds
 
@@ -83,12 +71,6 @@ pip install ".[audio]"
 
 <p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
 
-<p align="center">
-<code>▄▀▀▀▄ █░░░█ ░▀█▀░ ▄▀▀▀▀ █░░▄▀ ▄▀▀▀▀ ▀▀█▀▀ ▄▀▀▀▄ █▀▀▀▄ ▀▀█▀▀</code><br>
-<code>█░░░█ █░░░█ ░░█░░ █░░░░ ████░ ░███░ ░░█░░ █████ ████░ ░░█░░</code><br>
-<code>▀▄▄█▀ ▀▄▄▄▀ ░▄█▄░ ▀▄▄▄▄ █░░▀▄ ▄▄▄▄▀ ░░█░░ █░░░█ █░▀▄▄ ░░█░░</code>
-</p>
-
 ## ▶️ Quick start
 
 ```sh
@@ -101,12 +83,6 @@ your speakers. Press **q** to quit.
 ---
 
 <p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
-
-<p align="center">
-<code>█▀▀▀▄ █▀▀▀▀ █▄░░█ █▀▀▀▄ █▀▀▀▀ █▀▀▀▄ ░░░░░ █▄░▄█ ▄▀▀▀▄ █▀▀▀▄ █▀▀▀▀ ▄▀▀▀▀</code><br>
-<code>████░ ████░ █░█░█ █░░░█ ████░ ████░ ░░░░░ █░█░█ █░░░█ █░░░█ ████░ ░███░</code><br>
-<code>█░▀▄▄ █▄▄▄▄ █░░▀█ █▄▄▄▀ █▄▄▄▄ █░▀▄▄ ░░░░░ █░░░█ ▀▄▄▄▀ █▄▄▄▀ █▄▄▄▄ ▄▄▄▄▀</code>
-</p>
 
 ## 🎨 Render modes
 
@@ -129,12 +105,6 @@ rgbascii movie.mp4 --mode mono --mono-color FF0080   # hot-pink tint
 ---
 
 <p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
-
-<p align="center">
-<code>▄▀▀▀▄ █░░░░ █░░░░ ░░░░░ ▄▀▀▀▄ █▀▀▀▄ ▀▀█▀▀ ░▀█▀░ ▄▀▀▀▄ █▄░░█ ▄▀▀▀▀</code><br>
-<code>█████ █░░░░ █░░░░ ░░░░░ █░░░█ █░░░█ ░░█░░ ░░█░░ █░░░█ █░█░█ ░███░</code><br>
-<code>█░░░█ █▄▄▄▄ █▄▄▄▄ ░░░░░ ▀▄▄▄▀ █▀▀▀░ ░░█░░ ░▄█▄░ ▀▄▄▄▀ █░░▀█ ▄▄▄▄▀</code>
-</p>
 
 ## ⚙️ All options
 
@@ -233,12 +203,6 @@ rgbascii movie.mp4 --fps 15               # slow it down to 15 fps
 
 <p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
 
-<p align="center">
-<code>█░░▄▀ █▀▀▀▀ █░░░█ ▄▀▀▀▀</code><br>
-<code>████░ ████░ ░█░█░ ░███░</code><br>
-<code>█░░▀▄ █▄▄▄▄ ░░█░░ ▄▄▄▄▀</code>
-</p>
-
 ## 🎮 Keyboard controls
 
 These work **while the video is playing** (press the key once, no Enter needed):
@@ -256,12 +220,6 @@ These work **while the video is playing** (press the key once, no Enter needed):
 ---
 
 <p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
-
-<p align="center">
-<code>█▀▀▀▄ █▀▀▀▀ █▄░▄█ ▄▀▀▀▄</code><br>
-<code>█░░░█ ████░ █░█░█ █░░░█</code><br>
-<code>█▄▄▄▀ █▄▄▄▄ █░░░█ ▀▄▄▄▀</code>
-</p>
 
 ## 🎬 Demo
 
@@ -304,12 +262,6 @@ Or paste any embed link (YouTube, Streamable, …) instead — either is fine.
 ---
 
 <p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
-
-<p align="center">
-<code>▀▀█▀▀ ░▀█▀░ █▀▀▀▄ ▄▀▀▀▀</code><br>
-<code>░░█░░ ░░█░░ █░░░█ ░███░</code><br>
-<code>░░█░░ ░▄█▄░ █▀▀▀░ ▄▄▄▄▀</code>
-</p>
 
 ## 💡 Tips & recipes
 
@@ -364,12 +316,6 @@ rgbascii movie.mp4 --frames 100 --no-loop
 ---
 
 <p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
-
-<p align="center">
-<code>█▀▀▀▀ ▄▀▀▀▄ ▄▀▀▀▄</code><br>
-<code>████░ █████ █░░░█</code><br>
-<code>█░░░░ █░░░█ ▀▄▄█▀</code>
-</p>
 
 ## ❓ Troubleshooting
 
@@ -447,12 +393,6 @@ rgbascii movie.mp4 --width 80 --height 24   # force a fixed size
 
 <p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
 
-<p align="center">
-<code>█▀▀▀▄ █▀▀▀▀ █░░░█</code><br>
-<code>█░░░█ ████░ █░░░█</code><br>
-<code>█▄▄▄▀ █▄▄▄▄ ░▀▄▀░</code>
-</p>
-
 ## 🛠️ Development
 
 ```sh
@@ -470,12 +410,6 @@ rgbascii your_video.mp4
 ---
 
 <p align="center"><img src="assets/divider.svg" alt="" width="440"></p>
-
-<p align="center">
-<code>█░░░░ ░▀█▀░ ▄▀▀▀▀ █▀▀▀▀ █▄░░█ ▄▀▀▀▀ █▀▀▀▀</code><br>
-<code>█░░░░ ░░█░░ █░░░░ ████░ █░█░█ ░███░ ████░</code><br>
-<code>█▄▄▄▄ ░▄█▄░ ▀▄▄▄▄ █▄▄▄▄ █░░▀█ ▄▄▄▄▀ █▄▄▄▄</code>
-</p>
 
 ## 📄 License
 
