@@ -4,13 +4,8 @@ Play any video as colourful ASCII art right in your terminal — audio included,
 
 ---
 
-## Screenshot
 
-> Add one picture of the tool here. Save it as `assets/screenshot.png`, then uncomment
-> the line below:
-
-```html
-<!-- <img src="assets/screenshot.png" alt="rgbascii in action" width="700"> -->
+<img src="https://i.postimg.cc/ZRcHYny3/Screenshot-2026-09-12-at-7-57-03-PM.png" alt="rgbascii in action" width="700">
 ```
 
 ---
