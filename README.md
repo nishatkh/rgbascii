@@ -1,6 +1,6 @@
-# <img src="assets/logo.svg" alt="rgbascii" width="300">
+# <p align="center"><img src="assets/logo.svg" alt="rgbascii" width="300">
 
-Play any video as colourful ASCII art right in your terminal — audio included, no GUI required.
+Play any video as colourful ASCII art right in your terminal — audio included, no GUI required.</p>
 
 ---
 
