@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 44" role="presentation">
-<rect x="0" y="0" width="480" height="44" rx="10" fill="#0d1117" fill-opacity="0.85" stroke="#30363d"/>
-<text x="90" y="30" font-family="monospace" font-size="16" fill="#58a6ff" text-anchor="middle">░<animateTransform attributeName="transform" type="translate" values="0 0; 0 26" dur="1.30s" repeatCount="indefinite"/></text>
-<text x="180" y="30" font-family="monospace" font-size="16" fill="#58a6ff" text-anchor="middle">▒<animateTransform attributeName="transform" type="translate" values="0 0; 0 26" dur="1.55s" repeatCount="indefinite"/></text>
-<text x="270" y="30" font-family="monospace" font-size="16" fill="#58a6ff" text-anchor="middle">▓<animateTransform attributeName="transform" type="translate" values="0 0; 0 26" dur="1.80s" repeatCount="indefinite"/></text>
-<text x="360" y="29" font-family="monospace" font-size="15" fill="#7ee787" text-anchor="middle">▁▃▅▆▇█</text>
-<text x="360" y="29" font-family="monospace" font-size="15" fill="#f778ba" text-anchor="middle">✦<animate attributeName="opacity" values="0;0;1;0" keyTimes="0;0.6;0.7;1" dur="3s" repeatCount="indefinite"/></text>
-</svg>
