@@ -39,9 +39,9 @@ python3 -m venv .venv
 
 ```sh
 source .venv/bin/activate            # macOS / Linux (bash, zsh)
-# source .venv/bin/activate.fish     # macOS / Linux (fish shell)
-# .venv\Scripts\activate             # Windows (Command Prompt)
-# .venv\Scripts\Activate.ps1         # Windows (PowerShell)
+source .venv/bin/activate.fish     # macOS / Linux (fish shell)
+.venv\Scripts\activate             # Windows (Command Prompt)
+.venv\Scripts\Activate.ps1         # Windows (PowerShell)
 ```
 
 ### Step 4 — Install with audio support
